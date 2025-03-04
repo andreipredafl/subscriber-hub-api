@@ -27,13 +27,4 @@ class UpsertSubscriberFieldRequest extends FormRequest
             ],
         ];
     }
-    
-    // protected function failedValidation(Validator $validator)
-    // {
-    //     throw new HttpResponseException(
-    //         response()->json([
-    //             'message' => $validator->errors()->first()
-    //         ], 422)
-    //     );
-    // }
 }
