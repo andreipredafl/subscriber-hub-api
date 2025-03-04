@@ -26,6 +26,11 @@ class Subscriber extends Model
         'bounced',
         'unconfirmed',
     ];
+    
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
 
     public function fields()
     {

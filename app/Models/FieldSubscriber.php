@@ -14,6 +14,11 @@ class FieldSubscriber extends Pivot
         'value',
     ];
     
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+    
     public function subscriber()
     {
         return $this->belongsTo(Subscriber::class);
