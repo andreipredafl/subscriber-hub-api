@@ -12,6 +12,9 @@ Hopefully, this serves as a good showcase of my skills 🚀
 
 There is also a Vue.js client app for consuming this API. Check it out [here](https://github.com/andreipredafl/mailerlite-subscriber-client).
 
+If something is not working as expected, please check [this video recording](https://vimeo.com/1062946855/e48c0f0b6a?share=copy)
+If vieo expired, please write a email to andrei.preda.dev@gmail.com
+
 ## Requirements
 
 -   PHP 8.2+
