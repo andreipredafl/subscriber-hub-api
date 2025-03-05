@@ -13,7 +13,13 @@ class FieldController extends Controller
 {
     public function index(): JsonResponse
     {
-        $fields = Field::paginate(10);
+        $perPage = request()->get('per_page');
+        
+        if ($perPage) {
+            $fields = Field::orderBy('created_at', 'desc')->paginate($perPage);
+        } else {
+            $fields = Field::orderBy('created_at', 'desc')->get();
+        }
         
         return response()->json($fields, 200);
     }

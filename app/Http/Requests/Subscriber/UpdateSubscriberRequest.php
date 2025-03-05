@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Subscriber;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\Field;
+use App\Models\Subscriber as SubscriberModel;
 
 class UpdateSubscriberRequest extends FormRequest
 {
@@ -21,6 +23,14 @@ class UpdateSubscriberRequest extends FormRequest
             'unconfirmed',
         ];
         
+        $types = [
+            'date',
+            'number',
+            'string',
+            'boolean',
+            'link',
+        ];
+        
         return [
             'email' => [
                 'sometimes',
@@ -37,8 +47,41 @@ class UpdateSubscriberRequest extends FormRequest
             'state' => [
                 'sometimes',
                 'max:255',
-                'in:' . implode(',', $states),
+                'in:' . implode(',', SubscriberModel::STATES),
+            ],
+            'fields' => [
+                'sometimes',
+                'array',
+            ],
+            'fields.*' => [
+                'sometimes',
+                'array',
+            ],
+            'fields.*.title' => [
+                'sometimes',
+                'string',
+                'max:255',
+            ],
+            'fields.*.type' => [
+                'sometimes',
+                'string',
+                'max:255',
+                'in:' . implode(',', Field::TYPES),
+            ],
+            'fields.*.value' => [
+                'sometimes',
             ],
         ];
+    }
+    
+    public function validated($key = null, $default = null)
+    {
+        $validated = parent::validated();
+        
+        if (isset($validated['fields'])) {
+            unset($validated['fields']);
+        }
+        
+        return $validated;
     }
 }

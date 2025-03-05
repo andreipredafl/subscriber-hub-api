@@ -12,6 +12,8 @@ class SubscribersSeeder extends Seeder
      */
     public function run(): void
     {
+        Subscriber::truncate();
+        
         Subscriber::factory(10)->create();
     }
 }

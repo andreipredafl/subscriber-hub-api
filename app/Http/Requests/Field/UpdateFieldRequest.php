@@ -4,7 +4,8 @@ namespace App\Http\Requests\Field;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use App\Models\Field;
+use Illuminate\Support\Facades\DB;
+use App\Models\Field as FeldModel;
 
 class UpdateFieldRequest extends FormRequest
 {
@@ -15,15 +16,28 @@ class UpdateFieldRequest extends FormRequest
 
     public function rules(): array
     {
+        $fieldId = $this->route('field')?->id;
+        
         return [
             'title' => [
                 'sometimes',
                 'string',
-                'unique:fields,title,' . $this->route('field')?->id,
+                function ($attribute, $value, $fail) use ($fieldId) {
+                    $exists = DB::table('fields')
+                        ->whereRaw('LOWER(title) = ?', [strtolower($value)])
+                        ->when($fieldId, function ($query) use ($fieldId) {
+                            $query->where('id', '!=', $fieldId);
+                        })
+                        ->exists();
+                    
+                    if ($exists) {
+                        $fail('The ' . $attribute . ' is already registered.');
+                    }
+                }
             ],
             'type' => [
                 'sometimes',
-                Rule::in(Field::TYPES)
+                'in:' . implode(',', FeldModel::TYPES),
             ],
         ];
     }

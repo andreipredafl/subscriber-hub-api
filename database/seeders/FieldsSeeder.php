@@ -12,55 +12,49 @@ class FieldsSeeder extends Seeder
      */
     public function run(): void
     {
+        
+        Field::truncate();
         $fields = [
             [
-                'title' => 'company',
+                'title' => 'Company',
                 'type' => 'string'
             ],
             [
-                'title' => 'country',
+                'title' => 'Country',
                 'type' => 'string'
             ],
             [
-                'title' => 'city',
+                'title' => 'City',
                 'type' => 'string'
             ],
             [
-                'title' => 'state',
+                'title' => 'State',
                 'type' => 'string'
             ],
             [
-                'title' => 'zip',
+                'title' => 'Zip',
                 'type' => 'string'
             ],
             [
-                'title' => 'birthday',
+                'title' => 'Birthday',
                 'type' => 'date'
             ],
             [
-                'title' => 'industry',
+                'title' => 'Industry',
                 'type' => 'string'
             ],
             [
-                'title' => 'job_title',
+                'title' => 'Job Title',
                 'type' => 'string'
             ],
             [
-                'title' => 'address',
+                'title' => 'Address',
                 'type' => 'string'
             ],
             [
-                'title' => 'website',
-                'type' => 'string'
-            ],
-            [
-                'title' => 'subscribed',
-                'type' => 'boolean'
-            ],
-            [
-                'title' => 'newsletter',
-                'type' => 'boolean'
-            ],
+                'title' => 'Website',
+                'type' => 'link'
+            ]
         ];
 
         foreach ($fields as $field) {

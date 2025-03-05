@@ -4,7 +4,8 @@ namespace App\Http\Requests\Field;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use App\Models\Field;
+use App\Models\Field as FieldModel;
+use Illuminate\Support\Facades\DB;
 
 class StoreFieldRequest extends FormRequest
 {
@@ -20,11 +21,19 @@ class StoreFieldRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'unique:fields,title'
+                function ($attribute, $value, $fail) {
+                    $exists = DB::table('fields')
+                        ->whereRaw('LOWER(title) = ?', [strtolower($value)])
+                        ->exists();
+                    
+                    if ($exists) {
+                        $fail('The ' . $attribute . ' is already registered.');
+                    }
+                }
             ],
             'type' => [
                 'required',
-                Rule::in(Field::TYPES)
+                'in:' . implode(',', FieldModel::TYPES),
             ],
         ];
     }
