@@ -1,8 +1,14 @@
 # MailerLite Subscriber API
 
-A simple RESTful API built with Laravel for managing subscribers and custom fields.
+A simple RESTful API built with Laravel for managing subscribers and custom fields as part of the MailerLite challenge.
 
-This project is part of a challenge and showcases backend skills including validation, database relationships, and API structuring.
+This project is part of a challenge and showcases backend skills such as validation, database relationships, and API structuring.
+
+I aimed to keep the code as simple as possible while following best practices for structuring the project.
+
+Of course, there’s room for improvement, such as better error handling, enhanced validation, and more robust testing. Additionally, the fields in the store and update **subscriber methods could be moved to dedicated services**, but I opted to keep it simple.
+
+Hopefully, this serves as a good showcase of my skills 🚀
 
 There is also a Vue.js client app for consuming this API. Check it out [here](https://github.com/andreipredafl/mailerlite-subscriber-client).
 
