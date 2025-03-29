@@ -8,8 +8,6 @@ I aimed to keep the code as simple as possible while following best practices fo
 
 Of course, there’s room for improvement, such as better error handling, enhanced validation, and more robust testing. Additionally, the fields in the store and update **subscriber methods could be moved to dedicated services**, but I opted to keep it simple.
 
-Hopefully, this serves as a good showcase of my skills 🚀
-
 There is also a Vue.js client app for consuming this API. Check it out [here](https://github.com/andreipredafl/mailerlite-subscriber-client).
 
 If something is not working as expected, please check [this video recording](https://vimeo.com/1062946855/e48c0f0b6a?share=copy)
