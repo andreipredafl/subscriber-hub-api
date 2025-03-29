@@ -52,7 +52,7 @@ class SubscriberControllerTest extends TestCase
             'state' => 'active',
             'fields' => [
                 $field1->id => ['value' => 'Test Value'],
-                $field2->id => ['value' => 'https://mailerlite.com'],
+                $field2->id => ['value' => 'https://example.com'],
             ],
         ];
 
@@ -71,7 +71,7 @@ class SubscriberControllerTest extends TestCase
         $this->assertDatabaseHas('field_subscriber', [
             'subscriber_id' => $response->json('id'),
             'field_id' => $field2->id,
-            'value' => 'https://mailerlite.com',
+            'value' => 'https://example.com',
         ]);
     }
 

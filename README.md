@@ -1,17 +1,16 @@
-# MailerLite Subscriber API
+# Subscriber API
 
-A simple RESTful API built with Laravel for managing subscribers and custom fields as part of the MailerLite challenge.
+A simple RESTful API built with Laravel for managing subscribers and custom fields as part of a technical challenge.
 
-This project is part of a challenge and showcases backend skills such as validation, database relationships, and API structuring.
+This project showcases backend skills such as validation, database relationships, and API structuring.
 
 I aimed to keep the code as simple as possible while following best practices for structuring the project.
 
 Of course, there’s room for improvement, such as better error handling, enhanced validation, and more robust testing. Additionally, the fields in the store and update **subscriber methods could be moved to dedicated services**, but I opted to keep it simple.
 
-There is also a Vue.js client app for consuming this API. Check it out [here](https://github.com/andreipredafl/mailerlite-subscriber-client).
+There is also a Vue.js client app for consuming this API. Check it out [here](https://github.com/andreipredafl/subscriber-hub-client).
 
-If something is not working as expected, please check [this video recording](https://vimeo.com/1062946855/e48c0f0b6a?share=copy)
-If vieo expired, please write a email to andrei.preda.dev@gmail.com
+If the video has expired, feel free to contact me at andrei.preda.dev@gmail.com
 
 ## Requirements
 
@@ -25,8 +24,8 @@ If vieo expired, please write a email to andrei.preda.dev@gmail.com
 1.  **Clone the repository**
 
     ```bash
-    git clone git@github.com:andreipredafl/mailerlite-subscriber-api.git
-    cd mailerlite-subscriber-api
+    git clone git@github.com:andreipredafl/subscriber-api.git
+    cd subscriber-api
     ```
 
 2.  **Install dependencies**
@@ -66,7 +65,7 @@ If vieo expired, please write a email to andrei.preda.dev@gmail.com
         valet link
         ```
 
-        Visit: [http://mailerlite-subscriber-api.test](http://mailerlite-subscriber-api.test)
+        Visit: [http://subscriber-api.test](http://subscriber-api.test)
 
     -   **If you want to use HTTPS, you can follow these steps:**
 
@@ -74,7 +73,7 @@ If vieo expired, please write a email to andrei.preda.dev@gmail.com
         valet secure
         ```
 
-        Visit: [https://mailerlite-subscriber-api.test](https://mailerlite-subscriber-api.test)
+        Visit: [https://subscriber-api.test](https://subscriber-api.test)
 
         **If HTTPS is still not working, try the following:**
 
@@ -92,4 +91,3 @@ To run automated tests, execute:
 
 ```bash
 php artisan test
-```
